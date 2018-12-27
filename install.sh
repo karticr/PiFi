@@ -6,7 +6,6 @@ apt-get install git
 git clone https://github.com/doct0rr/PiFi.git
 cd PiFi
 
-
 apt-get install dnsmasq hostapd python3-flask python3-passlib python3-rpi.gpio
 
 sleep 1
@@ -62,7 +61,7 @@ systemctl start pifiWeb.service
 
 
 
-if pwd | grep -q 'pifi'; then 
+if pwd | grep -q 'PiFi'; then 
     while true; do
         read -p "Do you wish to delete the install files?" yn
         case $yn in

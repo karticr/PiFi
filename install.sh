@@ -1,6 +1,12 @@
 apt-get update
 apt-get upgrade
 
+apt-get install git
+
+git clone https://github.com/doct0rr/PiFi.git
+cd PiFi
+
+
 apt-get install dnsmasq hostapd python3-flask python3-passlib python3-rpi.gpio
 
 sleep 1

@@ -1,0 +1,73 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>PiFi</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="{{url_for('static',filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{url_for('static',filename = 'css/menu.css')}}" rel="stylesheet">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename = 'favicon.ico')}}">
+        <link href="{{url_for('static',filename = 'css/sticky-footer.css')}}" rel="stylesheet">
+        <script type="text/javascript" src="{{url_for('static',filename = 'js/jquery-3.2.1.min.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static',filename = 'js/bootstrap.min.js')}}"></script>
+        <script>
+                function myFunction() {
+                alert("The pi will reboot and connect to the wifi");
+                }
+        </script>
+    </head>
+
+    <body>
+
+        <div class="container">
+                <div class="card card-container">
+                    <!-- <img class="profile-img-card" src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc3%2FPython-logo-notext.svg%2F1200px-Python-logo-notext.svg.png&f=1" alt="" /> -->
+                    <img id="profile-img" class="profile-img-card" src="{{url_for('static',filename = 'images/pifi_logo.png')}}" />
+                    
+
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Wifi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Access Point</a>
+                            </li>
+                            
+
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            
+                            <form class="form-signin" action="" method ="post">
+                                <br>
+                                <div class="form-group">
+                                <select class="form-control" id="ssid" type="text" name="ssid" value="{{request.form.ssid}}">
+                                            {% for wifis in wifi_list %}
+                                                <option>{{ wifis }}</option>
+                                            {% endfor %}
+                                </select>
+                                </div>
+                                <input type="password" id="psk" class="form-control" placeholder="Password" name="psk" value="{{request.form.psk}}" required>
+                                <button class="btn btn-lg btn-primary btn-block btn-signin" onclick="myFunction()" value="Login">Connect to wifi</button>
+                            </form><!-- /form -->
+
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            
+                            <form class="form-signin" action="" method ="post">
+                                <br>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="PiFi" >
+                                <input type="password" id="psk" class="form-control" placeholder="Password" name="psk" value="{{request.form.psk}}" required>
+                                <input type="password" id="psk" class="form-control" placeholder="New Password" name="psk" value="{{request.form.psk}}" required>
+                                <input type="password" id="psk" class="form-control" placeholder="Confirm Password" name="psk" value="{{request.form.psk}}" required>
+
+                                <button class="btn btn-lg btn-primary btn-block btn-signin" onclick="myFunction()" value="Login">Save Settings</button>
+                            </form>
+                            
+                            </div>
+                            
+                            </div>
+                   
+                </div><!-- /card-container -->
+            </div><!-- /container -->
+
+    </body>

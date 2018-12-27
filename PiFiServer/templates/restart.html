@@ -1,0 +1,62 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Parking System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="{{url_for('static',filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{url_for('static',filename = 'css/menu.css')}}" rel="stylesheet">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename = 'favicon.ico')}}">
+        <link href="{{url_for('static',filename = 'css/sticky-footer.css')}}" rel="stylesheet">
+        <script type="text/javascript" src="{{url_for('static',filename = 'js/jquery-3.2.1.min.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static',filename = 'js/bootstrap.min.js')}}"></script>
+
+        <script>
+            var timeleft = 20;
+
+            var downloadTimer = setInterval(function(){
+            document.getElementById("progressBar").value = 20 - --timeleft;
+ 
+            if(timeleft <= 0)
+                {
+                    clearInterval(downloadTimer);
+                    alert("{{ alert_msg }}");
+                    window.location.href = '/';
+                    
+                }
+                
+            },1000);
+            
+        </script>
+
+        <style>
+                #myProgress {
+                width: 100%;
+                background-color: #ddd;
+                }
+
+                #progressBar {
+                width: 100%;
+                height: 50px;
+                background-color: #4CAF50;
+                text-align: center;
+                line-height: 30px;
+                color: white;
+                }
+        </style>
+    </head>
+
+    <body>
+       
+                <div class="container">
+                <div class="card card-container">
+                    <!-- <img class="profile-img-card" src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc3%2FPython-logo-notext.svg%2F1200px-Python-logo-notext.svg.png&f=1" alt="" /> -->
+                    <img id="profile-img" class="profile-img-card" src="{{url_for('static',filename = 'images/pifi_logo.png')}}" />
+                        <p>{{ message }}</p>
+                        <div class="progress" style="height:20px">
+                        <progress class="progress-bar" value="0" max="20" id="progressBar"></progress>
+                        </div>
+
+                    </form><!-- /form -->
+                </div><!-- /card-container -->
+            </div><!-- /container -->
+    </body>

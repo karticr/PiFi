@@ -2,4 +2,3 @@
 * text=auto
 *.rb linguist-language=Python
 PiFiServer/static/* linguist-vendored
-PiFiServer/templates/* linguist-vendored

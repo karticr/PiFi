@@ -24,11 +24,18 @@ def getWifiList():
     ret = [x for x in ret if x]
     return ret
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return redirect("http://192.168.4.1/login" )
+
+
+@app.route('/login', methods=["GET", "POST"])
 def index():
     access_point="yolo"
     wifi_list = getWifiList()
     return render_template('index.html', wifi_list = wifi_list, access_point=access_point)
+
 
 
 @app.route('/setwifi', methods=["GET", "POST"])

@@ -1,5 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.rb linguist-language=Python
-static/* linguist-vendored
-templates/* linguist-vendored
+PiFiServer/static/* linguist-vendored
+PiFiServer/templates/* linguist-vendored

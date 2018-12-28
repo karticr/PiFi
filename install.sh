@@ -1,13 +1,11 @@
 apt-get update
 apt-get upgrade
 
-apt-get install git
+apt-get install git dnsmasq hostapd python3-flask python3-passlib python3-rpi.gpio
 
 git clone https://github.com/doct0rr/PiFi.git
+sleep 1
 cd PiFi
-
-apt-get install dnsmasq hostapd python3-flask python3-passlib python3-rpi.gpio
-
 sleep 1
 echo "stopping dnsmasq and hostapd"
 systemctl stop dnsmasq

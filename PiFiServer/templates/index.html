@@ -9,6 +9,23 @@
         <link href="{{url_for('static',filename = 'css/sticky-footer.css')}}" rel="stylesheet">
         <script type="text/javascript" src="{{url_for('static',filename = 'js/jquery-3.2.1.min.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static',filename = 'js/bootstrap.min.js')}}"></script>
+
+        <script type="text/javascript">
+          $(document).ready( function(){
+          $('#ssid').load('/getwifilist');
+          refresh();
+          });
+          
+          function refresh()
+          {
+              setTimeout( function() {
+              $('#ssid').load('/getwifilist');
+              refresh();
+              }, 5000);
+          }
+      </script>
+
+
     </head>
 
     <body>
@@ -35,16 +52,14 @@
                             
                             <form class="form-signin" action="/setwifi" method ="post">
                                 <br>
-                                <div class="form-group">
-                                <select class="form-control" id="ssid" type="text" name="ssid" value="{{request.form.ssid}}">
-                                            {% for wifis in wifi_list %}
-                                                <option>{{ wifis }}</option>
-                                            {% endfor %}
-                                </select>
+                                <div class="form-group" id="wifiListPlace">
+                                    <select class="form-control" id="ssid" type="text" name="ssid" value="{{request.form.ssid}}">
+                                    <!-- JavaScript Dynamic Loading ( wifi list) -->
+                                    </select>
                                 </div>
                                 <input type="password" id="psk" class="form-control" placeholder="Password" name="psk" value="{{request.form.psk}}" required>
                                 <button class="btn btn-lg btn-primary btn-block btn-signin" onclick="return confirm('Wifi settings will be overwritten and the pi will reboot. are you sure ?')" value="Login">Connect to wifi</button>
-                            </form><!-- /form -->
+                            </form>
 
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

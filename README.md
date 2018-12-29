@@ -5,11 +5,12 @@ Work in progress.
 
 ## Contents
 
- - [Prerequisites](#prerequisites)
+ - [How It Works](#prerequisites)
  - [Quick install](#quick-install)
  - [Manual installation](#manual-installation)
  - [Optional services](#optional-services)
  - [How to contribute](#how-to-contribute)
+ - [Support Me](#Support-me)
  - [License](#license)
  
 
@@ -33,8 +34,10 @@ After installation the Default Accesspoint will be configured as follows:
 2. Fork the project and create new branches.
 3. Share the project.
 
-## Support Me
+## Support me
 If you feel like PiFi is useful for your projects, please consider supporting me for future projects like this.
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](paypal.me/noodlemonster)
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/noodlemonster)
+
 ## License
 See the [LICENSE](./LICENSE) file.

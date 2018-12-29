@@ -1,8 +1,8 @@
+## Current development going on here :arrow_right: [Development Branch](https://github.com/doct0rr/PiFi/tree/development)
 # PiFi
-# `$ PiFi` [![Release 1.0.0](https://img.shields.io/badge/Release-1.0.0-green.svg)]
+
 Raspberry pi Wifi Connection manager with a responsive web interface which will be presented as a configuration dialogue as soon as you connect to the pi's access point.
-Adding in the needed changes
-Commit From Pi (test)
+
 ## Contents
 
  - [How It Works](#prerequisites)
@@ -18,7 +18,7 @@ Commit From Pi (test)
 ## Quick install
 Install PiFi from your RaspberryPi's shell :
 ```sh
-$ wget https://raw.githubusercontent.com/doct0rr/PiFi/master/install.sh
+$ wget https://raw.githubusercontent.com/doct0rr/PiFi/master/quick_installer.sh
 $ sudo chmod +x install.sh
 $ sudo ./install.sh
 ```

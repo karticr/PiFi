@@ -27,10 +27,10 @@ def getWifiList():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    return redirect("http://192.168.4.1/login" )
+    return redirect("http://192.168.4.1/configure" )
 
 
-@app.route('/login', methods=["GET", "POST"])
+@app.route('/configure', methods=["GET", "POST"])
 def index():
     access_point="yolo"
     wifi_list = getWifiList()

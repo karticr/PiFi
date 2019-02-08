@@ -19,8 +19,8 @@ Raspberry pi Wifi Connection manager with a responsive web interface which will 
 Install PiFi from your RaspberryPi's shell :
 ```sh
 $ wget https://raw.githubusercontent.com/doct0rr/PiFi/development/quick_installer.sh
-$ sudo chmod +x install.sh
-$ sudo ./install.sh
+$ sudo chmod +x quick_installer.sh
+$ sudo ./quick_installer.sh
 ```
 
 After installation the Default Accesspoint will be configured as follows:

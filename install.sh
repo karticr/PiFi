@@ -42,7 +42,7 @@ sleep 1
 systemctl start dnsmasq
 
 
-cp -R PiFiServer /etc/PiFi
+cp -R PiFiServer /var/PiFi
 
 cp pifi_reset.service /etc/systemd/system/pifiReset.service
 

@@ -24,6 +24,7 @@ def getWifiList():
     ret = [x for x in ret if x]
     return ret
 
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
@@ -33,10 +34,12 @@ def catch_all(path):
 @app.route('/configure', methods=["GET", "POST"])
 def index():
     access_point="yolo"
+    return render_template('index.html', access_point=access_point)
+
+@app.route('/getwifilist')
+def reuus():
     wifi_list = getWifiList()
-    return render_template('index.html', wifi_list = wifi_list, access_point=access_point)
-
-
+    return render_template('wifiList.html', wifi_list= wifi_list)
 
 @app.route('/setwifi', methods=["GET", "POST"])
 def setWifi():

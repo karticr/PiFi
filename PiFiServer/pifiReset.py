@@ -16,23 +16,26 @@ check_cmd = "sudo systemctl status pifiWeb.service | grep Active | awk '{print $
 from commandExec import commandExec
 from dataManagement import switchToAp
 
+rest_button = 40
+led_pin     = 38
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
+GPIO.setup(rest_button, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(led_pin, GPIO.OUT)
 
 
 def ledBlink():
     while True:
         data = commandExec(check_cmd).rstrip().lstrip()
         if(data == "active"):
-            GPIO.setup(18,GPIO.OUT)
-            GPIO.output(18,GPIO.HIGH)
+            GPIO.setup(led_pin,GPIO.OUT)
+            GPIO.output(led_pin,GPIO.HIGH)
             time.sleep(.5)
-            GPIO.output(18,GPIO.LOW)
+            GPIO.output(led_pin,GPIO.LOW)
             time.sleep(.5)
-
+        else:
+            time.sleep(1)
 
 i = False
 
@@ -40,9 +43,9 @@ i = False
 Thread(target=ledBlink).start() 
 
 while True:
-    input = GPIO.input(23)
+    input = GPIO.input(rest_button)
     print(input)
-    if(input):
+    if(not input):
         print("Starting server")
         Thread(target=commandExec, args= ("sudo systemctl start pifiWeb.service",)).start()   
         time.sleep(1)

@@ -36,6 +36,7 @@ cat hostapd >> /etc/default/hostapd
 
 sleep 1
 echo "starting everything up"
+sudo systemctl unmask hostapd
 systemctl start hostapd
 
 sleep 1
